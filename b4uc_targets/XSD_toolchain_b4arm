@@ -1,0 +1,18 @@
+<xsd:sequence>
+  <xsd:element name="Platform_RTE">												<!-- ... -->
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="GenerateStartupScript" type="xsd:boolean"/>			<!-- ... -->
+        <xsd:element name="StartupOptions" minOccurs="0">						<!-- ... -->
+          <xsd:complexType>
+            <xsd:choice>
+              <xsd:element name="LoadPLCFromFile"/>								<!-- ... -->
+              <xsd:element name="LoadPLCFromFlash"/>							<!-- ... -->
+            </xsd:choice>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="StartPLCOnLoad" type="xsd:boolean"/>					<!-- ... -->
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:sequence>

@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+from udynlink_utils import *
+from jinja2 import FileSystemLoader
+from jinja2.environment import Environment
+from zlib import crc32
+import struct
+
+compile_pref = "arm-none-eabi-"
+sym_renames = {}
+
+parser = get_arg_parser('Compilation script')
+parser.add_argument("--name", dest="name", default=None, help="Module name (default is inferred from the name of first source)")
+args, rest = parser.parse_known_args()
+if len(rest) == 0:
+    error("Empty file list")
+
+object_files = rest
+public_symbols = ""
+
+def rename_symbols(src, dest, name_map, args):
+    cmdline = compile_pref + "objcopy"
+    for n in name_map:
+        cmdline = cmdline + " --redefine-sym %s=%s" % (n, name_map[n])
+    cmdline = cmdline + " %s %s" % (src, dest)
+    execute(cmdline, args)
+
+def get_local_name(n, f):
+    return "__%s__%s" % (f, n)
+
+# Relocate symbols if needed
+for objname in [] + object_files:
+	# Generate temporary object file with renamed symbols
+	local_syms = [s for s in get_local_symbols_in_object(objname) if len(public_symbols) == 0 or s in public_symbols or s == "__init_array"]
+	temp_obj = os.path.join(objname + '.temp.o')
+	os.rename(objname, temp_obj)
+	sym_renames.clear()
+	sym_renames.update({n: get_local_name(n,objname) for n in local_syms })
+	print("sym_renames", to_json(sym_renames))
+	rename_symbols(temp_obj, objname, sym_renames, args)
+	os.remove(temp_obj)

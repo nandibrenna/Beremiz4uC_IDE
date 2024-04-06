@@ -1,0 +1,5 @@
+                  <xsd:element name="PLCF407VE">
+                    <xsd:complexType>
+                      %(toolchain_b4arm)s			<!-- use toolchain configuration -->
+                    </xsd:complexType>
+                  </xsd:element>

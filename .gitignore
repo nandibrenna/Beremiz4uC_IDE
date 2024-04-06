@@ -1,0 +1,14 @@
+*.pyc
+**/__pycache__
+.vscode
+**/build/**
+*.class
+**/.svghmithumbs/**
+**/my_*.der
+**/my_*.pem
+XSD_toolchain_pio
+docker
+*.sh
+.coredir
+LOCATED_VARIABLES.h
+beremiz.h

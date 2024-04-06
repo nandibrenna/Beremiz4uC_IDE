@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<RootNode name="PLCConfiguration PLCF407VE">
+    <Group node_type="IO_INTF_INTERN" node_name="IO Internal">
+        <Group node_type="AnalogInput" node_name="Analog Inputs">
+            <Location node_type="AnalogInputPin" node_name="AnalogInputPin" attr_path="AnalogInput" IOName="AIN1" DataType="INT32" PinName="PA1" Description="analog input 1"/>
+            <Location node_type="AnalogInputPin" node_name="AnalogInputPin" attr_path="AnalogInput" IOName="AIN2" DataType="INT32" PinName="PA2" Description="analog input 2"/>
+            <Location node_type="AnalogInputPin" node_name="AnalogInputPin" attr_path="AnalogInput" IOName="AIN3" DataType="INT32" PinName="PA3" Description="analog input 3"/>
+            <Location node_type="AnalogInputPin" node_name="AnalogInputPin" attr_path="AnalogInput" IOName="AIN4" DataType="INT32" PinName="PA4" Description="analog input 4"/>
+        </Group>
+        <Group node_type="AnalogOutput" node_name="Analog Outputs">
+            <Location node_type="AnalogOutputPin" node_name="AnalogOutputPin" attr_path="AnalogOutput" IOName="AOUT1" DataType="INT32" PinName="PB1" Description="analog output 1"/>
+            <Location node_type="AnalogOutputPin" node_name="AnalogOutputPin" attr_path="AnalogOutput" IOName="AOUT2" DataType="INT32" PinName="PB2" Description="analog output 2"/>
+            <Location node_type="AnalogOutputPin" node_name="AnalogOutputPin" attr_path="AnalogOutput" IOName="AOUT3" DataType="INT32" PinName="PB3" Description="analog output 3"/>
+            <Location node_type="AnalogOutputPin" node_name="AnalogOutputPin" attr_path="AnalogOutput" IOName="AOUT4" DataType="INT32" PinName="PB4" Description="analog output 4"/>
+        </Group>
+        <Group node_type="DigitalInput" node_name="Digital Inputs">
+            <Location node_type="DigitalInputPin" node_name="DigitalInputPin" attr_path="DigitalInput" IOName="DIN1" DataType="BOOL" PinName="PC1" Description="digital input 1"/>
+            <Location node_type="DigitalInputPin" node_name="DigitalInputPin" attr_path="DigitalInput" IOName="DIN2" DataType="BOOL" PinName="PC2" Description="digital input 2"/>
+            <Location node_type="DigitalInputPin" node_name="DigitalInputPin" attr_path="DigitalInput" IOName="DIN3" DataType="BOOL" PinName="PC3" Description="digital input 3"/>
+            <Location node_type="DigitalInputPin" node_name="DigitalInputPin" attr_path="DigitalInput" IOName="DIN4" DataType="BOOL" PinName="PC4" Description="digital input 4"/>
+            <Location node_type="DigitalInputPin" node_name="DigitalInputPin" attr_path="DigitalInput" IOName="DIN5" DataType="BOOL" PinName="PC5" Description="digital input 5"/>
+            <Location node_type="DigitalInputPin" node_name="DigitalInputPin" attr_path="DigitalInput" IOName="DIN6" DataType="BOOL" PinName="PC6" Description="digital input 6"/>
+            <Location node_type="DigitalInputPin" node_name="DigitalInputPin" attr_path="DigitalInput" IOName="DIN7" DataType="BOOL" PinName="PC7" Description="digital input 7"/>
+            <Location node_type="DigitalInputPin" node_name="DigitalInputPin" attr_path="DigitalInput" IOName="DIN8" DataType="BOOL" PinName="PC8" Description="digital input 8"/>
+        </Group>
+        <Group node_type="DigitalOutput" node_name="Digital Outputs">
+            <Location node_type="DigitalOutputPin" node_name="DigitalOutputPin" attr_path="DigitalOutput" IOName="DOUT1" DataType="BOOL" PinName="PD1" Description="digital output 1"/>
+            <Location node_type="DigitalOutputPin" node_name="DigitalOutputPin" attr_path="DigitalOutput" IOName="DOUT2" DataType="BOOL" PinName="PD2" Description="digital output 2"/>
+            <Location node_type="DigitalOutputPin" node_name="DigitalOutputPin" attr_path="DigitalOutput" IOName="DOUT3" DataType="BOOL" PinName="PD3" Description="digital output 3"/>
+            <Location node_type="DigitalOutputPin" node_name="DigitalOutputPin" attr_path="DigitalOutput" IOName="DOUT4" DataType="BOOL" PinName="PD4" Description="digital output 4"/>
+            <Location node_type="DigitalOutputPin" node_name="DigitalOutputPin" attr_path="DigitalOutput" IOName="DOUT5" DataType="BOOL" PinName="PD5" Description="digital output 5"/>
+            <Location node_type="DigitalOutputPin" node_name="DigitalOutputPin" attr_path="DigitalOutput" IOName="DOUT6" DataType="BOOL" PinName="PD6" Description="digital output 6"/>
+            <Location node_type="DigitalOutputPin" node_name="DigitalOutputPin" attr_path="DigitalOutput" IOName="DOUT7" DataType="BOOL" PinName="PD7" Description="digital output 7"/>
+            <Location node_type="DigitalOutputPin" node_name="DigitalOutputPin" attr_path="DigitalOutput" IOName="DOUT8" DataType="BOOL" PinName="PD8" Description="digital output 8"/>
+        </Group>
+    </Group>
+    <Group node_type="IO_INTF_GROUP" node_name="IO Interface">
+        <Group node_type="IO_GROUP_UART" node_name="UART_Interface">
+            <Location node_type="IO_UART" node_name="UART" attr_path="UART" IOName="UART1" BaudRate="115200" Bits="8" Stop_Bits="1" Parity="N" Type="" Usage="ERPC"       Usage2="RS232 DB9M"/>
+            <Location node_type="IO_UART" node_name="UART" attr_path="UART" IOName="UART2" BaudRate="115200" Bits="8" Stop_Bits="1" Parity="E" Type="" Usage="ModbusRTU"  Usage2="RS485 P1"/>
+            <Location node_type="IO_UART" node_name="UART" attr_path="UART" IOName="UART3" BaudRate="115200" Bits="8" Stop_Bits="1" Parity="N" Type="" Usage=""           Usage2="P5.14(TX) P5.11(RX)"/>
+            <Location node_type="IO_UART" node_name="UART" attr_path="UART" IOName="UART6" BaudRate="115200" Bits="8" Stop_Bits="1" Parity="N" Type="" Usage="Console"    Usage2="P5.6(TX) P5.3(RX)"/>
+        </Group>
+        <Group node_type="IO_GROUP_CAN" node_name="CAN_Interface">
+            <Location node_type="IO_CAN" node_name="CAN" attr_path="CAN" IOName="CAN0" BaudRate="115200" Type="" Usage="" Usage2=""/>
+            <Location node_type="IO_CAN" node_name="CAN" attr_path="CAN" IOName="CAN1" BaudRate="115200" Type="" Usage="" Usage2=""/>
+        </Group>
+        <Group node_type="IO_GROUP_ETH" node_name="Ethernet_Interface">
+            <Location node_type="IO_ETH" node_name="Ethernet" attr_path="NetworkConfiguration" IOName="ETH0" IP="" Type="DHCP" Usage="" Usage2="network interface"/>
+        </Group>
+        <Group node_type="IO_GROUP_W1" node_name="IO_GROUP_W1">
+            <Location node_type="W1_TEMP" node_name="W1 TEMP" attr_path="W1TEMP" IOName="TEMP1" Serial="" Type="DS18B20" Usage="" Usage2="1Wire temperature sensor"/>
+            <Location node_type="W1_TEMP" node_name="W1 TEMP" attr_path="W1TEMP" IOName="TEMP2" Serial="" Type="DS18B20" Usage="" Usage2="1Wire temperature sensor"/>
+        </Group>
+    </Group>
+</RootNode>
