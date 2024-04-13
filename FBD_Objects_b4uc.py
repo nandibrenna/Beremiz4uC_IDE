@@ -68,6 +68,7 @@ class FBD_Block(Graphic_Element):
         self.Pen = MiterPen(wx.BLACK)
         self.SetType(type, extension, inputs, connectors, executionControl)
         self.Highlights = {}
+        self.parent = parent
 
     # Make a clone of this FBD_Block
     def Clone(self, parent, id=None, name="", pos=None):
@@ -430,6 +431,12 @@ class FBD_Block(Graphic_Element):
                 output.RefreshWires()
 
     def GetToolTipValue(self):
+        for var in self.parent.Controler.GetEditedElementInterfaceVars(self.parent.TagName):
+            if var.Name == self.Name:
+                if var.Documentation != '':
+                    self.Description = var.Name + '\n' + var.Documentation
+                    break
+
         return self.Description
 
     # Adds an highlight to the block
@@ -518,7 +525,7 @@ class FBD_Variable(Graphic_Element):
     """
 
     # Create a new variable
-    def __init__(self, parent, type, name, value_type, id=None, executionOrder=0):
+    def __init__(self, parent, type, name, value_type, id=None, executionOrder=0, documentation=None):
         Graphic_Element.__init__(self, parent)
         self.Type = None
         self.ValueType = None
@@ -529,6 +536,8 @@ class FBD_Variable(Graphic_Element):
         self.Output = None
         self.SetType(type, value_type)
         self.Highlights = []
+        self.Description = documentation
+        self.parent = parent
 
     # Make a clone of this FBD_Variable
     def Clone(self, parent, id=None, pos=None):
@@ -757,6 +766,14 @@ class FBD_Variable(Graphic_Element):
         if move and self.Type != OUTPUT:
             if self.Output:
                 self.Output.RefreshWires()
+
+    def GetToolTipValue(self):
+        for var in self.parent.Controler.GetEditedElementInterfaceVars(self.parent.TagName):
+            if var.Edit and var.Name == self.Name:
+                if var.Documentation != '':
+                    self.Description = var.Name + '\n' + var.Documentation
+                    break
+        return self.Description
 
     # Adds an highlight to the variable
     def AddHighlight(self, infos, start, end, highlight_type):

@@ -19,6 +19,8 @@ class CustomImporter:
     def find_module(self, fullname, path=None):
         if fullname == "graphics.FBD_Objects":
             return self
+        if fullname == "controls.CustomToolTip":
+            return self
         return None
 
     def load_module(self, name):
@@ -26,6 +28,10 @@ class CustomImporter:
             return sys.modules[name]
         if name == "graphics.FBD_Objects":
             module = import_module("FBD_Objects_b4uc")
+            sys.modules[name] = module
+            return module
+        if name == "controls.CustomToolTip":
+            module = import_module("CustomToolTip_b4uc")
             sys.modules[name] = module
             return module
         raise ImportError("Cannot find module")
